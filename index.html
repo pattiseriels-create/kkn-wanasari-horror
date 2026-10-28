@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>HP Aliya — KKN Wanasari</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--bl:#0a84ff;--mu:#8e8e93}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;background:#030304;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;color:#fff;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;min-height:44px;min-width:44px}
+#phone{position:relative;width:100vw;height:100dvh;overflow:hidden;background:linear-gradient(170deg,#0d1a17,#1a1424 60%,#060709);transition:filter 2s}
+#phone.t3{background:linear-gradient(170deg,#1a0f0f,#1a1424 60%,#050506)}
+@media(min-width:700px){#phone{width:390px;height:844px;border-radius:56px;border:11px solid #1a1a1d;box-shadow:0 0 0 2px #444,0 30px 80px #000}}
+#island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:32px;border-radius:20px;background:#000;z-index:60;display:none}
+@media(min-width:700px){#island{display:block}}
+#status{position:absolute;top:0;left:0;right:0;z-index:55;display:flex;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 14px) 28px 0;font-size:14px;font-weight:600;pointer-events:none}
+.scr{position:absolute;inset:0;opacity:0;pointer-events:none;transform:scale(1.05);transition:opacity .4s,transform .4s;padding-top:calc(env(safe-area-inset-top,0px) + 50px)}
+.scr.on{opacity:1;pointer-events:auto;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+#lock{text-align:center;display:flex;flex-direction:column;align-items:center}
+.big{font-size:80px;font-weight:300;line-height:1;margin-top:16px}
+.ban{display:flex;gap:10px;align-items:center;text-align:left;background:rgba(60,60,67,.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:20px;padding:10px 14px;margin-top:8px;font-size:14px;min-height:44px;width:calc(100% - 28px)}
+.ban b{display:block}.ban span{color:#ddd}
+#dots{display:flex;gap:16px;margin:12px 0;justify-content:center}#dots i{width:13px;height:13px;border-radius:50%;border:1.5px solid #fff}#dots i.f{background:#fff}
+.shake{animation:sh .4s}@keyframes sh{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+#pad{display:grid;grid-template-columns:repeat(3,72px);gap:12px 20px;justify-content:center}#pad button{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.15);font-size:30px;font-weight:300}#pad .e{background:none;font-size:15px}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 16px}.w{background:rgba(255,255,255,.09);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:22px;padding:14px;min-height:110px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 6px;text-align:center;font-size:11px}
+.ic{width:60px;height:60px;border-radius:15px;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-size:30px;position:relative}
+.bd{position:absolute;top:-6px;right:-6px;background:#ff3b30;border-radius:11px;min-width:22px;height:22px;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:700}
+#home{display:flex;flex-direction:column;padding-left:18px;padding-right:18px}
+.dock{margin-top:auto;margin-bottom:calc(env(safe-area-inset-bottom,0px) + 22px);background:rgba(255,255,255,.16);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-radius:32px;padding:12px;display:grid;grid-template-columns:repeat(4,1fr)}
+#app{background:#000;z-index:30;display:flex;flex-direction:column;padding-top:calc(env(safe-area-inset-top,0px) + 48px)}
+#body{flex:1;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth}
+.hi{height:calc(env(safe-area-inset-bottom,0px) + 26px);display:flex;align-items:center;justify-content:center;flex:none;width:100%;min-height:26px}.hi i{width:134px;height:5px;border-radius:3px;background:#fff}
+.hd{display:flex;align-items:center;gap:6px;padding:2px 14px}h1.t{font-size:30px;margin:0;padding:0 16px 8px}
+.row{display:flex;gap:12px;align-items:center;padding:10px 16px;border-bottom:.5px solid #2c2c2e;width:100%;text-align:left;min-height:56px}
+.av{width:44px;height:44px;border-radius:50%;background:#3a3a3c;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}.mu{color:var(--mu);font-size:13px}
+#msgs{padding:10px 12px;display:flex;flex-direction:column;gap:5px}
+.b{max-width:78%;padding:8px 13px;border-radius:19px;font-size:16px;line-height:1.3;position:relative;word-wrap:break-word}.b.o{background:#2c2c2e;align-self:flex-start;border-bottom-left-radius:5px}.b.u{background:var(--bl);align-self:flex-end;border-bottom-right-radius:5px}.b.d{background:none;border:1px dashed #444;color:#777;font-style:italic;align-self:flex-start}
+.nm{font-size:11px;color:var(--mu);margin:4px 0 -2px 8px}.tp{position:absolute;top:-12px;right:-6px;font-size:14px;background:#3a3a3c;border-radius:12px;padding:1px 5px;border:2px solid #000}
+.dv{align-self:center;color:var(--mu);font-size:12px;margin:10px 0 2px}.ph{height:150px;width:210px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.typ{align-self:flex-start;background:#2c2c2e;border-radius:19px;padding:11px 14px;display:flex;gap:4px}.typ i{width:7px;height:7px;border-radius:50%;background:#8e8e93;animation:bl 1s infinite}.typ i:nth-child(2){animation-delay:.2s}.typ i:nth-child(3){animation-delay:.4s}@keyframes bl{50%{opacity:.25}}
+.wv{display:flex;align-items:center;gap:8px;min-width:150px}.wv s{flex:1;height:18px;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 5px);-webkit-mask:linear-gradient(90deg,#000 var(--p,0%),#fff5 0);mask:linear-gradient(90deg,#000 var(--p,0%),#fff5 0)}
+.ch{display:flex;flex-direction:column;gap:8px;padding:10px 14px;flex:none}.ch button{border:1.5px solid var(--bl);border-radius:16px;padding:8px 14px;text-align:left}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}.pg button{aspect-ratio:1;padding:0;overflow:hidden;font-size:34px;display:flex;align-items:center;justify-content:center}
+#modal,#end{position:absolute;inset:0;background:rgba(0,0,0,.97);z-index:40;display:none;flex-direction:column;padding-top:calc(env(safe-area-inset-top,0px) + 50px)}#modal.on,#end.on{display:flex}#end{z-index:90;padding:80px 24px 30px;justify-content:center;text-align:center;gap:14px}
+#call{position:absolute;inset:0;z-index:80;background:linear-gradient(#1c1f2b,#000);display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px}#call.on{display:flex}
+#banner{position:absolute;top:calc(env(safe-area-inset-top,0px) + 8px);left:10px;right:10px;z-index:70;transform:translateY(-140%);transition:transform .45s;cursor:pointer}#banner.on{transform:none}
+#toast{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 40px);left:50%;transform:translateX(-50%);z-index:95;background:#ff9f0a;color:#000;padding:8px 16px;border-radius:20px;font-size:14px;opacity:0;transition:opacity .4s;pointer-events:none;white-space:nowrap}#toast.on{opacity:1}
+.gl{animation:gl 3s infinite}@keyframes gl{0%,92%,100%{transform:none;text-shadow:none}94%{transform:translateX(-2px);text-shadow:2px 0 #f0f,-2px 0 #0ff}97%{transform:translateX(2px)}}
+.flk{animation:fk 6s infinite}@keyframes fk{0%,95%,100%{opacity:1}96%{opacity:.4}98%{opacity:.9}}
+.safe .gl,.safe .flk{animation:none}
+.note{padding:16px;line-height:1.55;white-space:pre-wrap}.fb{background:#3a3a3c;color:#aaa;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;width:100%;height:100%}
+input.in{background:#1c1c1e;border:1px solid #3a3a3c;border-radius:12px;padding:0 12px;height:44px;color:#fff;font-size:16px;width:100%;outline:0}
+</style></head><body>
+<div id="phone">
+<div id="island"></div><div id="status"><span id="sT"></span><span><span id="sS">▂▄▆</span> 〰 <span id="sB">62</span>%🔋</span></div>
+<div id="banner" role="button" aria-label="Notifikasi"></div><div id="toast"></div>
+<section class="scr on" id="lock"></section><section class="scr" id="home"></section>
+<section class="scr" id="app"><div id="body"></div><button class="hi" id="hi" aria-label="Kembali ke layar utama"><i></i></button></section>
+<div id="modal"></div><div id="call"></div><div id="end"></div>
+</div>
+<script>
+/* ============ DATA CERITA (edit di sini) ============ */
+const D={
+CFG:{pin:"0509",hint:"Tanggal yang tidak pernah berganti",ownerReal:"Hanifah R.",ownerShown:"Aliya",lockPass:"1998",group:"KKN Wanasari 🌿"},
+NAMES:{a:"Aliya",n:"Nayla",e:"Elisha",r:"Ridha",z:"Aliza",x:"Nomor Tidak Dikenal"},
+/* [pengirim, teks(null=dihapus), jam, opsi {p:foto, v:vn, t:tapback, rename:id, pick:id}] ; "#" = penanda hari */
+GROUP:[
+["#","Hari 1 · Senin",1],
+["n","Fotoooo dulu semuanya!! 📸 kumpul depan posko","08.10",{p:0}],
+["e","duh rumahnya gede banget sepi gini 😭","08.14"],
+["a","tenang el, ini posko kita 7 hari. yang penting beres-beres dulu","08.15"],
+["r","Bismillah. Bendahara siap, kas awal Rp2,5 juta aman.","08.20",{t:"👍"}],
+["e","ada yang liat bapak2 depan pagar? dari tadi ngeliatin kita","19.02"],
+["z","Bukan kita. Dia ngeliatin aku.","19.03"],
+["n","ih jangan gitu zaa 🥲","19.03"],
+["#","Hari 2 · Selasa",2],
+["n","sinyal cuma 1 bar, gpp. foto kelompok udah ku upload ya","09.40",{p:1}],
+["a","loh kok di foto ini cuma 4? aliza mana?","09.41"],
+["n","hah? aliza kan di sebelah elisha 🤔","09.41"],
+["e","ga ada deng… kok ga ada??","09.42"],
+["z","Aku di situ. Dari tadi.","09.43"],
+["a","mungkin angle nya. next foto ya, kita fokus proker","09.44"],
+["#","Hari 3 · Rabu",3],
+["e","GUYS ada suara langkah di loteng semalem. pas jam 3!!","06.30"],
+["r","Itu tikus atau kayu memuai. Jangan lebay, El. Istighfar.","06.31"],
+["n","tapi pintu kamarku kekunci sendiri 😭 aku keluar lewat jendela","06.35"],
+["a","yang ngunci siapa? jujur aja","06.36"],
+["z","Bukan aku.","06.37"],
+["#","Hari 4 · Kamis",4],
+["e","ada telpon nomor ga dikenal jam 03.03. lagi. kalian juga?","03.05"],
+["a","iya, 3 malam berturut-turut. ga ke-save, ga ada kodenya","03.06"],
+["r","Kemungkinan operator iseng. Aku catat di Notes dulu.","03.08"],
+["n","foto yang tadi pagi kok hilang dari galeri aku??","03.10",{t:"😨"}],
+["n",null,"03.11"],
+["?","loteng","03.12"],
+["#","Hari 5 · Jumat",5],
+["e","GUYS FOTO INI. ada di galeri hp aku. stempelnya 1998","07.01",{p:4}],
+["e","itu posko kita. itu seragam KKN. itu… lima orang","07.02"],
+["r","Pasti editan. Tanggal bisa diubah siapa pun.","07.03"],
+["n","aku ga bisa tidur. aku motret terus, tapi jam di fotonya ga pernah maju","07.10"],
+["#","Hari 6 · Sabtu",6],
+["n","…","02.50"],
+["n","","02.51",{v:"0:09"}],
+["a","nay? itu suara siapa di voice note mu?","02.52"],
+["e","aku sendirian di dapur, aku takut banget","02.53"],
+["e",null,"02.54",{rename:"n"}],
+["a","halo? semua masih di sini?","02.58"],
+["z","Aliya. Cuma aku yang masih bisa jawab.","03.03"],
+["z","Dengar aku. Jangan ke loteng lagi.","03.03"],
+["#","Hari 7 · Minggu",7],
+["a","aku mau telepon pulang. ada yang tahu titik sinyal?","05.09"],
+["z","Jembatan dekat sungai. Cuma di situ.","05.09"],
+["z","Sebelum itu, buka semuanya. Foto, catatan, kalender. Semua.","05.09"],
+["z","Aku tunggu.","05.09"]],
+PRIV:{r:[["o","Aliya, bisa kita bicara soal kas? Ada uang Rp2,5 juta yang tidak pernah berkurang."],["u","mungkin kamu salah hitung"],["o","Saya hitung tiga kali. Tiga-tiganya sama. Itu yang membuat saya takut."]],
+ e:[["o","li aku takut banget 😭 kamu bisa temenin ga"],["u","sini ke kamarku, el"],["o","iya… tapi tadi di lorong ada yang ikut jalan di belakangku"]],
+ n:[["o","li, fotonya kok jadi gelap semua"],["u","kirim ke aku"],["o","[Pesan ini telah dihapus]"]],
+ z:[["o","Aliya, kamu pernah ingat naik apa ke sini?"],["u","bus kampus kan?"],["o","Coba ingat lagi."]]},
+CH:{loteng:{q:"Cek loteng sekarang?",o:[["Cek loteng bareng-bareng","aku naik ke loteng. kalian ikut ya","yes"],["Tunggu pagi aja","kita tunggu pagi. jangan ada yang naik","no"]]}},
+PHOTOS:[
+ {c:"Foto kelompok depan posko (5 orang)",d:"5 Sep · 05.09",h:150,e:"🏚️"},
+ {c:"Foto kelompok hari ke-2: hanya 4 orang",d:"5 Sep · 05.09",h:200,e:"👥",clue:"p4"},
+ {c:"Jalan setapak menuju sungai",d:"5 Sep · 05.09",h:120,e:"🌫️"},
+ {c:"Dapur posko",d:"5 Sep · 05.09",h:30,e:"🍳"},
+ {c:"Foto lama: lima remaja berseragam KKN, 1998",d:"5 Sep 1998 · 05.09",h:50,e:"📷",clue:"p98"},
+ {c:"Loteng (pintu terbuka sendiri)",d:"5 Sep · 05.09",h:260,e:"🚪"},
+ {c:"Bapak di depan pagar",d:"5 Sep · 05.09",h:90,e:"👤"},
+ {c:"Sarapan bareng, ada 5 piring",d:"5 Sep · 05.09",h:40,e:"🍚"},
+ {c:"Selfie Elisha (wajah ketakutan)",d:"5 Sep · 05.09",h:330,e:"😰"},
+ {c:"Jembatan sungai",d:"5 Sep · 05.09",h:180,e:"🌉"},
+ {c:"Makam desa",d:"5 Sep · 05.09",h:230,e:"🪦"},
+ {c:"Halaman posko berkabut",d:"5 Sep · 05.09",h:160,e:"🌳"}],
+DELETED:[
+ {c:"Bus kampus miring di tikungan (buram)",d:"4 Sep · 21.40",h:0,e:"🚌",clue:"bus"},
+ {c:"Lima kursi bus, tiga kosong",d:"4 Sep · 21.38",h:0,e:"💺"},
+ {c:"Selfie berlima di dalam bus",d:"4 Sep · 21.30",h:0,e:"🤳"}],
+NOTES:[
+ {t:"Logbook Aliya",b:"H1: tiba, rapi-rapi posko. Aliza pendiam banget.\nH2: foto kelompok cuma 4 orang?\nH3: langkah di loteng.\nH4: telpon 03.03 lagi.\nH5: foto 1998. aku mulai takut.\nH6: yang lain ga jawab.\nH7: ???\n\nKenapa aku ga ingat naik apa ke sini?"},
+ {t:"Daftar proker",b:"☐ Penyuluhan sampah\n☐ Mengajar TPA\n☐ Bersih makam desa\n☐ Pelatihan UMKM\n(semua dicentang tapi tidak ada yang ingat mengerjakannya)"},
+ {t:"Catatan Ridha (dishare)",b:"Teori 1: tikus.\nTeori 2: kayu memuai.\nTeori 3: halusinasi massal karena kurang tidur.\nTeori 4: kita semua sudah ... astaghfirullah, hapus.\n\nCatatan: kenapa tidak ada satu pun yang lapar sejak hari kedua?"},
+ {t:"Catatan terakhir 🔒",lock:1,b:"Aliya,\nkita naik bus yang sama. Bus itu tidak pernah sampai.\nIni malam pertama yang terulang. Aku Aliza, aku sadar lebih dulu.\nElisha, Nayla, dan Ridha tidak selamat, dan belum tahu.\nPulanglah. Tapi kamu harus mau melepaskan."}],
+VMS:[{t:"Rekaman Nayla 02.51",s:"[bisikan] ...jangan naik... jangan naik... kami masih di sini, Aliya... [suara perempuan lain] sudah 26 tahun...",clue:"vm"},{t:"Rekaman Aliya 21.35 (4 Sep)",s:"Ini rekaman di bus. Elisha ketawa terus. Ridha baca doa. Nayla motret. Aliza duduk di belakang, diam. Eh, supirnya ngebut!"},{t:"Rekaman Ridha",s:"Saya Ridha. Kalau ada yang dengar rekaman ini, saya tidak yakin ini hari yang sama."}],
+CALLS:[["Nomor Tidak Dikenal","03.03","Hari 4",1],["Nomor Tidak Dikenal","03.03","Hari 3",1],["Nomor Tidak Dikenal","03.03","Hari 2",1],["Mama","19.20","Hari 1",0],["Aliza","21.10","Hari 1",0]],
+PLACES:[["🏚️ Posko KKN","Rumah almarhum kepala desa. Tempat kita tidur. Atau tidak."],["🌊 Sungai","Airnya tenang. Terlalu tenang."],["🪦 Makam desa","Nisan terakhir tidak ada namanya."],["🚏 Halte bus","Bus tujuan Wanasari tidak pernah tiba.",1],["📶 Satu-satunya titik sinyal","Jembatan dekat sungai. Satu bar."]],
+EVENTS:[["5 Sep","Berangkat KKN (dibuat 2 bulan lalu)"],["5 Sep","Hari ke-3: Rapat evaluasi"],["5 Sep","Hari ke-5: Penarikan kas"],["5 Sep","Hari ke-7: Pulang"]],
+CLUES:{p4:"Foto kelompok hanya 4 orang",p98:"Foto lama tahun 1998",ts:"Semua foto bercap 05.09",cal:"Kalender tidak pernah maju",name:"Pemilik HP bukan Aliya",lock:"Catatan terakhir terbuka",vm:"Voice note Nayla",call:"Panggilan 03.03",bus:"Foto bus di Dihapus"},
+ENDINGS:{
+ a:{t:"Pulang",b:"Kamu menarik napas, lalu mengangguk pada Aliza. Kabut menipis. Di kejauhan terdengar bunyi sirene, dan lampu putih menghangatkan wajahmu. Teman-temanmu tersenyum sekali lagi, lalu menghilang pelan. Kamu pulang, dengan membawa mereka dalam ingatan."},
+ b:{t:"Mengulang",b:"Kamu menolak. Layar berkedip. Pagi datang, kabut yang sama. Seseorang berseru dari depan posko: \"Fotoooo dulu semuanya!\" Dan di layar HP-mu, tanggal masih 5 September."},
+ c:{t:"Akhir rahasia",b:"Bunyi mesin pernapasan. Kamu membuka mata di kamar putih. Aliza duduk di sisi ranjang, menggenggam tanganmu. \"Aliya, akhirnya. Aku sudah pulih lebih dulu, dan aku menemanimu setiap hari.\" Di jendela, hari sudah pagi, dan tanggalnya akhirnya berganti."}}
+};
+/* ============ LOGIKA ============ */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let S;function init(){S={app:null,sub:null,card:null,found:new Set,opened:new Set,unread:2,stage:1,safe:S?S.safe:false,played:false,tok:0,flag:{},seen:new Set,unlocked:false,ver:0,pin:""}}init();
+const vib=p=>{if(!S.safe)try{navigator.vibrate&&navigator.vibrate(p)}catch(_){}};
+const APPS=[["messages","Messages","💬","#30d158"],["phone","Phone","📞","#34c759"],["photos","Photos","🌸","#fff"],["notes","Notes","📝","#ffd60a"],["maps","Maps","🗺️","#32ade6"],["memos","Voice Memos","🎙️","#ff453a"],["calendar","Calendar","📅","#fff"],["settings","Settings","⚙️","#8e8e93"]];
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");setTimeout(()=>e.classList.remove("on"),2600)}
+function clue(id){if(S.found.has(id))return;S.found.add(id);toast("🔍 Bukti "+S.found.size+"/9: "+D.CLUES[id]);vib(25);if(S.app==="home"||!S.app)buildHome()}
+function tick(){const n=new Date();$("#sT").textContent=n.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit",hour12:false}).replace(".",":");$$(".clk").forEach(e=>e.textContent=$("#sT").textContent);$$(".dt").forEach(e=>e.textContent=n.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long"}))}
+setInterval(tick,1000);setInterval(()=>{const b=$("#sB"),v=+b.textContent;if(v>3)b.textContent=v-1},60000);
+function stage(n){S.stage=Math.max(S.stage,n);$("#sS").textContent=S.stage>=4?"Tidak Ada Layanan":S.stage>=3?"▂":"▂▄▆";$("#phone").classList.toggle("t3",S.stage>=5)}
+function show(id){["lock","home","app"].forEach(s=>$("#"+s).classList.toggle("on",s===id))}
+/* LOCK */
+function buildLock(){$("#lock").innerHTML=`<div class="mu">🔒</div><div class="dt" style="font-size:19px"></div><div class="big clk"></div>
+<button class="ban" aria-label="Notifikasi"><span style="font-size:24px">❓</span><div><b>Nomor Tidak Dikenal</b><span class="gl">Aliya, jangan ke loteng.</span></div></button><button class="ban" aria-label="Pengingat"><span style="font-size:24px">⏰</span><div><b>Reminders</b><span>Hari ke-7: Pulang (5 Sep)</span></div></button>
+<div style="margin-top:auto;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 14px)"><div style="font-size:15px">Masukkan Kode Sandi</div><div id="dots" aria-label="Indikator kode"><i></i><i></i><i></i><i></i></div><div id="pad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button data-k="${n}" aria-label="${n}">${n}</button>`).join("")}<button class="e" data-s aria-label="Mode aman">${S.safe?"🛡️ Aman: ON":"🛡️ Mode aman"}</button><button data-k="0" aria-label="0">0</button><button class="e" data-k="d" aria-label="Hapus">Hapus</button></div><div class="mu" style="margin-top:12px">${D.CFG.hint}</div></div>`;tick()}
+$("#lock").onclick=e=>{const b=e.target.closest("button");if(!b)return;if("s"in b.dataset){setSafe(!S.safe);buildLock();return}const k=b.dataset.k;if(k===undefined)return;
+ if(k==="d")S.pin=S.pin.slice(0,-1);else if(S.pin.length<4)S.pin+=k;$$("#dots i").forEach((d,i)=>d.classList.toggle("f",i<S.pin.length));vib(8);
+ if(S.pin.length===4){if(S.pin===D.CFG.pin){setTimeout(()=>{S.pin="";buildHome();show("home");startPings()},200)}else{vib([80,40,80]);$("#dots").classList.add("shake");setTimeout(()=>{S.pin="";buildLock()},450)}}};
+function setSafe(v){S.safe=v;$("#phone").classList.toggle("safe",v)}
+/* HOME */
+function buildHome(){const ic=a=>`<button data-app="${a[0]}" aria-label="${a[1]}"><div class="ic" style="background:${a[3]}">${a[2]}${a[0]==="messages"&&S.unread?`<span class="bd">${S.unread}</span>`:""}</div>${a[1]}</button>`;
+$("#home").innerHTML=`<div class="wg"><div class="w"><div class="mu dt"></div><div class="clk" style="font-size:40px;font-weight:300"></div></div><div class="w"><div class="mu">Cuaca</div><div style="font-size:34px;font-weight:300">14°C</div><div class="mu">🌫️ Berkabut</div></div><div class="w" style="grid-column:span 2"><div class="mu">Bukti ditemukan</div><div class="${S.stage>=3?"gl":""}" style="font-size:32px;font-weight:700">${S.found.size} / 9</div><div class="mu">${S.found.size>=5?"Cukup untuk pulang.":"Terus cari. Buka semua aplikasi."}</div></div></div>
+<div class="g4">${[APPS[3],APPS[5],APPS[6],APPS[7]].map(ic).join("")}</div><div class="dock">${[APPS[1],APPS[0],APPS[2],APPS[4]].map(ic).join("")}</div>
+<button id="pw" aria-label="Kunci kembali" style="position:absolute;right:14px;top:calc(env(safe-area-inset-top,0px) + 44px);font-size:20px">🔒</button>`;tick()}
+$("#home").onclick=e=>{const a=e.target.closest("[data-app]");if(a)openApp(a.dataset.app);if(e.target.closest("#pw")){buildLock();show("lock")}};
+function openApp(id){S.opened.add(id);if(id==="messages")S.unread=0;S.app=id;S.sub=null;S.card=null;render();show("app");buildHome();if(id==="calendar"&&S.opened.size>=8)0}
+$("#hi").onclick=()=>{S.tok++;S.app=null;show("home");buildHome()};
+const hdr=(t,b)=>`<div class="hd">${b?`<button data-back aria-label="Kembali" style="color:#0a84ff">‹ Kembali</button>`:""}</div>${t?`<h1 class="t ${S.stage>=3&&t.length<12?"gl":""}">${t}</h1>`:""}`;
+function render(){$("#body").innerHTML=(V[S.app]||(()=>""))();$("#body").scrollTop=0;if(S.app==="messages"&&S.sub)chat()}
+/* tile foto */
+const tile=p=>`<div style="width:100%;height:100%;background:linear-gradient(145deg,hsl(${p.h},35%,22%),hsl(${p.h+40},30%,8%));display:flex;align-items:center;justify-content:center;font-size:inherit">${p.src?`<img src="${p.src}" alt="${esc(p.c)}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover" onerror="fb(this)">`:p.e}</div>`;
+function fb(e){const d=document.createElement("div");d.className="fb";d.innerHTML='<span>Gambar gagal dimuat</span><button style="color:#0a84ff">Coba lagi</button>';d.querySelector("button").onclick=()=>{const s=e.src;e.src="";e.src=s;d.replaceWith(e)};e.replaceWith(d)}
+const V={
+messages(){if(S.sub){const g=S.sub==="g";return `<div class="hd" style="border-bottom:.5px solid #2c2c2e"><button data-back aria-label="Kembali" style="color:#0a84ff">‹</button><b class="${S.stage>=4?"gl":""}">${g?D.CFG.group:D.NAMES[S.sub]}</b></div><div id="msgs"></div><div id="ch" class="ch"></div>`}
+ const L=[["g","🌿",D.CFG.group,D.GROUP[D.GROUP.length-1][1]],...["z","r","e","n"].map(k=>[k,"💬",D.NAMES[k],D.PRIV[k].slice(-1)[0][1]])];
+ return hdr("Messages")+L.map(l=>`<button class="row" data-open="${l[0]}"><div class="av">${l[1]}</div><div style="min-width:0;flex:1"><b>${esc(l[2])}</b><div class="mu" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(l[3])}</div></div>${l[0]==="g"&&S.unread?'<span style="width:10px;height:10px;border-radius:50%;background:#0a84ff"></span>':""}</button>`).join("")},
+phone(){if(S.card!==null){return hdr("",1)+`<div style="text-align:center;padding:30px"><div class="av" style="width:90px;height:90px;font-size:44px;margin:auto">❓</div><h1 class="t gl">Nomor Tidak Dikenal</h1><button data-dial aria-label="Telepon" style="background:#30d158;border-radius:50%;width:64px;height:64px;font-size:26px">📞</button></div>`}
+ return hdr("Recents")+D.CALLS.map((c,i)=>`<button class="row" data-call="${i}"><div class="av">${c[3]?"❓":"👤"}</div><div style="flex:1"><b style="color:${c[3]?"#ff453a":"#fff"}">${c[0]}</b><div class="mu">${c[3]?"Tak terjawab":"Keluar"} · ${c[2]}</div></div><span class="mu">${c[1]}</span></button>`).join("")},
+photos(){const A=S.sub==="del"?D.DELETED:D.PHOTOS;return hdr(S.sub==="del"?"Dihapus Baru-baru Ini":"Photos")+`<div style="display:flex;gap:8px;padding:0 16px 10px"><button data-alb="rec" style="padding:0 16px;border-radius:20px;background:${S.sub!=="del"?"#fff":"#2c2c2e"};color:${S.sub!=="del"?"#000":"#fff"};min-height:36px">Recents</button><button data-alb="del" style="padding:0 16px;border-radius:20px;background:${S.sub==="del"?"#fff":"#2c2c2e"};color:${S.sub==="del"?"#000":"#fff"};min-height:36px">Dihapus 🗑️</button></div><div class="pg">${A.map((p,i)=>`<button data-ph="${i}" aria-label="${esc(p.c)}">${tile(p)}</button>`).join("")}</div>`},
+notes(){if(S.sub!==null){const n=D.NOTES[S.sub];if(n.lock&&!S.unlocked)return hdr("",1)+`<h1 class="t">${n.t}</h1><div style="padding:16px"><p class="mu">Catatan ini terkunci. Petunjuk: tahun di foto lama.</p><input class="in" id="pw2" aria-label="Kata sandi" placeholder="Kata sandi"><button data-unl style="margin-top:10px;background:#ffd60a;color:#000;border-radius:12px;width:100%">Buka</button></div>`;
+  let b=n.b;if(S.sub===2&&S.flag.loteng==="yes")b+="\n\n[Ditambahkan setelah loteng] Tidak ada apa-apa di sana. Hanya kursi bus yang berderet. Kenapa ada kursi bus?";return hdr("",1)+`<h1 class="t">${n.t}</h1><div class="note">${esc(b)}</div>`}
+ return hdr("Notes")+D.NOTES.map((n,i)=>`<button class="row" data-note="${i}"><b style="flex:1">${n.t}</b><span class="mu">${n.lock&&!S.unlocked?"🔒":"›"}</span></button>`).join("")},
+maps(){if(S.sub!==null){const p=D.PLACES[S.sub];if(p[2]&&!S.found.has("bus"))setTimeout(()=>clue("bus"),0);return hdr("",1)+`<div style="padding:16px"><h1 class="t" style="padding:0">${p[0]}</h1><p>${p[1]}</p>${S.sub===4?`<button data-final style="background:#30d158;color:#000;border-radius:14px;width:100%;margin-top:16px;font-weight:700">Telepon pulang</button>`:""}</div>`}
+ return hdr("Maps")+`<div style="height:130px;margin:0 16px 10px;border-radius:16px;background:radial-gradient(circle at 60% 50%,#1d3a52,#0b1621)"></div>`+D.PLACES.map((p,i)=>`<button class="row" data-pl="${i}"><b>${p[0]}</b></button>`).join("")},
+memos(){return hdr("Voice Memos")+D.VMS.map((m,i)=>`<div class="row" style="flex-direction:column;align-items:flex-start"><b>${m.t}</b><button data-vm="${i}" aria-label="Putar rekaman" style="color:#ff453a;min-height:36px">▶ Putar</button><div class="note" style="padding:0;font-size:14px;color:#bbb" id="tr${i}"></div></div>`).join("")},
+calendar(){return hdr("Calendar")+D.EVENTS.map((e,i)=>`<button class="row" data-ev="${i}"><div class="av" style="border-radius:12px;font-size:12px;background:#ff453a">${e[0]}</div><b>${e[1]}</b></button>`).join("")},
+settings(){return hdr("Settings")+`<button class="row" data-own><div class="av">👤</div><div><b>${S.ver>=1?D.CFG.ownerReal:D.CFG.ownerShown}</b><div class="mu">Ketuk untuk detail Apple ID</div></div></button><div class="row"><span style="flex:1">Mode aman (kurangi efek)</span><button data-safe style="color:#0a84ff">${S.safe?"ON":"OFF"}</button></div><div class="row"><span style="flex:1">Bukti</span><span class="mu">${S.found.size}/9</span></div>${S.ver?`<div class="note mu">Apple ID terdaftar atas nama ${D.CFG.ownerReal}.</div>`:""}`}};
+/* CHAT */
+const bub=(m,g)=>{const o=m[3]||{},u=m[0]==="a",nm=D.NAMES[S.rn&&S.rn[m[0]]?"x":m[0]];let c=m[1]===null?"Pesan ini telah dihapus":o.p!==undefined?`<div class="ph" style="background:linear-gradient(145deg,hsl(${D.PHOTOS[o.p].h},35%,22%),#0a0a0e)">${D.PHOTOS[o.p].e}</div>`:o.v?`<div class="wv"><button data-vn aria-label="Putar pesan suara" style="min-height:30px;min-width:30px">▶</button><s></s>${o.v}</div>`:esc(m[1]);
+ return (g&&!u?`<div class="nm ${nm==="Nomor Tidak Dikenal"?"gl":""}">${nm}</div>`:"")+`<div class="b ${m[1]===null?"d":u?"u":"o"}">${c}${o.t?`<span class="tp">${o.t}</span>`:""}</div>`};
+function chat(){const my=++S.tok,box=$("#msgs"),sc=()=>{$("#body").scrollTop=1e6};S.rn={};
+ if(S.sub!=="g"){const L=D.PRIV[S.sub];box.innerHTML=L.map(m=>`<div class="b ${m[0]==="u"?"u":"o"}">${esc(m[1])}</div>`).join("");if(S.sub==="z")stage(S.stage);return}
+ let i=0;const play=!S.played;
+ (function step(){if(my!==S.tok)return;const m=D.GROUP[i];if(!m){S.played=true;S.unread=0;return}
+  if(m[0]==="#"){box.insertAdjacentHTML("beforeend",`<div class="dv">${m[1]}</div>`);stage(m[2]);i++;return setTimeout(step,play?300:0)}
+  if(m[0]==="?"){const c=D.CH[m[1]];if(S.flag[m[1]]){box.insertAdjacentHTML("beforeend",bub(["a",c.o.find(x=>x[2]===S.flag[m[1]])[1],m[2]],1));i++;return step()}
+   $("#ch").innerHTML=c.o.map((x,k)=>`<button data-pick="${k}">${esc(x[0])}</button>`).join("");$("#ch").onclick=e=>{const b=e.target.closest("[data-pick]");if(!b)return;const x=c.o[+b.dataset.pick];S.flag[m[1]]=x[2];$("#ch").innerHTML="";box.insertAdjacentHTML("beforeend",bub(["a",x[1],m[2]],1));sc();i++;setTimeout(step,500)};sc();return}
+  const o=m[3]||{};if(o.rename)S.rn[o.rename]=1;
+  const put=()=>{box.insertAdjacentHTML("beforeend",bub(m,1));i++;sc();vib(4);setTimeout(step,play?(m[0]==="a"?500:700):0)};
+  if(play&&m[0]!=="a"){box.insertAdjacentHTML("beforeend",'<div class="typ"><i></i><i></i><i></i></div>');sc();setTimeout(()=>{if(my!==S.tok)return;const t=$(".typ");t&&t.remove();put()},600)}else put()})()}
+/* EVENT delegasi */
+$("#body").addEventListener("click",e=>{const t=e.target.closest("button,[data-open]");if(!t)return;const d=t.dataset;
+ if("back"in d){if(S.card!==null)S.card=null;else S.sub=null;S.tok++;render()}
+ else if(d.open){S.sub=d.open;render()}
+ else if(d.alb){S.sub=d.alb==="del"?"del":null;render()}
+ else if(d.ph!==undefined)modal(+d.ph)
+ else if(d.note!==undefined){S.sub=+d.note;render()}
+ else if("unl"in d){if($("#pw2").value.trim()===D.CFG.lockPass){S.unlocked=true;clue("lock");render()}else{vib([60,40,60]);$("#pw2").value="";$("#pw2").placeholder="Salah. Coba lagi."}}
+ else if(d.pl!==undefined){S.sub=+d.pl;render()}
+ else if("final"in d)ending()
+ else if(d.vm!==undefined){const m=D.VMS[+d.vm],tr=$("#tr"+d.vm);tr.textContent="";let k=0;const iv=setInterval(()=>{tr.textContent=m.s.slice(0,k+=3);if(k>m.s.length){clearInterval(iv);if(m.clue)clue(m.clue)}},40)}
+ else if(d.ev!==undefined){toast("Tanggal di kalender: 5 September");if(+d.ev>=1&&S.opened.size>0)clue("cal")}
+ else if(d.call!==undefined){S.card=+d.call;render()}
+ else if("dial"in d)callUI()
+ else if("own"in d){S.ver++;render();clue("name")}
+ else if("safe"in d){setSafe(!S.safe);render()}
+ else if("vn"in d){const s=t.nextElementSibling;let p=0;t.textContent="⏸";const iv=setInterval(()=>{p+=8;s.style.setProperty("--p",p+"%");if(p>=100){clearInterval(iv);t.textContent="▶";clue("vm")}},180)}});
+/* modal foto */
+function modal(i){const A=S.sub==="del"?D.DELETED:D.PHOTOS,n=(i+A.length)%A.length,p=A[n],m=$("#modal");S.seen.add(p.c);if(p.clue)clue(p.clue);if(S.seen.size>=3)clue("ts");
+ m.classList.add("on");m.innerHTML=`<div class="hd"><button data-x aria-label="Tutup" style="color:#0a84ff">Tutup</button></div><div style="flex:1;font-size:120px;min-height:0">${tile(p)}</div><div style="text-align:center;padding:10px"><b>${esc(p.c)}</b><div class="mu">${p.d}</div></div><div style="display:flex;justify-content:space-between;padding:0 24px 24px"><button data-pv aria-label="Foto sebelumnya" style="font-size:26px">‹</button><button data-nx aria-label="Foto berikutnya" style="font-size:26px">›</button></div>`;
+ m.onclick=e=>{const b=e.target.closest("button");if(!b)return;if("x"in b.dataset)m.classList.remove("on");if("pv"in b.dataset)modal(n-1);if("nx"in b.dataset)modal(n+1)};let x0=0;m.ontouchstart=e=>x0=e.touches[0].clientX;m.ontouchend=e=>{const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)modal(n+(d<0?1:-1))}}
+/* panggilan 03.03: hasil beda tiap hari */
+function callUI(){const c=S.card,el=$("#call"),day=D.CALLS[c][2],lines=["Nomor yang Anda tuju tidak aktif.","(statis) ...Aliya...","(suara anak kecil) kamu sudah lama di sini.","(napas) pulanglah."];clue("call");el.classList.add("on");el.innerHTML=`<div class="av" style="width:100px;height:100px;font-size:48px">❓</div><h2 class="gl" style="margin:0">Nomor Tidak Dikenal</h2><div class="mu">${day} · memanggil…</div><p class="${S.safe?"":"flk"}" style="min-height:48px;color:#ccc" id="cl"></p><button id="ce" aria-label="Akhiri panggilan" style="background:#ff3b30;border-radius:50%;width:70px;height:70px;font-size:26px;margin-top:30px">📵</button>`;vib(30);
+ const L=lines[(+day.replace(/\D/g,"")+c)%4];setTimeout(()=>{const p=$("#cl");if(p)p.textContent=L},2000);$("#ce").onclick=()=>el.classList.remove("on")}
+/* pesan masuk terjadwal */
+const PINGS=[["Aliza","Sudah buka semua aplikasi?"],["Nomor Tidak Dikenal","Aliya, jangan ke loteng."],["Ridha","Kenapa kas tidak berkurang?"],["Elisha","aku denger langkah lagi 😭"]];
+let pt;function startPings(){clearInterval(pt);pt=setInterval(()=>{const home=$("#home").classList.contains("on");if(!home)return;const p=PINGS[Math.random()*4|0];S.unread++;$("#banner").innerHTML=`<div class="ban" style="width:100%"><span style="font-size:24px">💬</span><div><b>${p[0]}</b><span>${p[1]}</span></div></div>`;$("#banner").classList.add("on");vib([20,30,20]);buildHome();setTimeout(()=>$("#banner").classList.remove("on"),4500)},25000)}
+$("#banner").onclick=()=>{$("#banner").classList.remove("on");openApp("messages")};
+/* akhir cerita */
+function ending(){const n=S.found.size,e=$("#end");let k=n>=5?"a":"b";
+ const opts=[["Terima kenyataan dan pulang","a"],["Tolak, tetap di posko","b"]];if(n>=9&&S.unlocked)opts.push(["Buka mata","c"]);
+ e.classList.add("on");e.innerHTML=`<h1 class="t gl">Jembatan, 05.09</h1><p>Bukti terkumpul: ${n}/9. ${n>=5?"Kamu sudah cukup tahu.":"Kamu belum cukup tahu, kamu mungkin belum siap."}</p>${opts.map(o=>`<button data-e="${o[1]}" style="border:1.5px solid #0a84ff;border-radius:16px;padding:10px">${o[0]}</button>`).join("")}`;
+ e.onclick=ev=>{const b=ev.target.closest("[data-e]");if(b){let r=b.dataset.e;if(r==="a"&&n<5)r="b";const x=D.ENDINGS[r];e.innerHTML=`<h1 class="t">${x.t}</h1><p style="line-height:1.6">${x.b}</p><button data-r style="background:#fff;color:#000;border-radius:16px;padding:10px">Main lagi</button>`}else if(ev.target.closest("[data-r]")){e.classList.remove("on");init();$("#phone").classList.remove("t3");$("#sS").textContent="▂▄▆";buildLock();show("lock");clearInterval(pt)}}}
+buildLock();buildHome();tick();
+</script></body></html>
